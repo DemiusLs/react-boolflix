@@ -4,17 +4,49 @@ import { GlobalContext } from './context/GlobalContext'
 
 function App() {
 
-  const { tryvar } = useContext(GlobalContext)
+
+
+
+  const { textSearch, setTextSearch, getFilmList } = useContext(GlobalContext)
+
+
+  const [inputVar, setInputVar] = useState("")
+
+  const handleChange = (e) => {
+
+    setInputVar(e.target.value)
+  }
+
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    setTextSearch(inputVar)
+
+
+  }
 
   useEffect(() => {
+    textSearch !== "" && getFilmList()
+    
+  }, [textSearch])
 
-    console.log(tryvar)
-  }, [])
 
 
   return (
     <>
-      <h1>{tryvar}</h1>
+      <main>
+
+        <div>
+          <form action="">
+
+            <input type="text" value={inputVar} onChange={handleChange} />
+            <button onClick={handleClick}>Richiesta</button>
+
+          </form>
+
+
+        </div>
+      </main>
     </>
   )
 }
