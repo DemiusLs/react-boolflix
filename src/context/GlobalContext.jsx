@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 const GlobalContext = createContext();
 
 
-const globalContextProvider = ({ children }) => {
+const GlobalContextProvider = ({ children }) => {
 
     const [tryvar, setTryVar] = useState("Hello")
 
@@ -22,4 +22,4 @@ const globalContextProvider = ({ children }) => {
 
 
 
-export { GlobalContext, globalContextProvider };
+export { GlobalContext, GlobalContextProvider };
