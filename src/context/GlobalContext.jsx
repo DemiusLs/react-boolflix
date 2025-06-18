@@ -7,27 +7,31 @@ const GlobalContext = createContext();
 
 const GlobalContextProvider = ({ children }) => {
 
-    const apiUrl = import.meta.env.VITE_API_URL_MOVIES;
+    const apiUrl = import.meta.env.VITE_API_URL;
     const apiKey = import.meta.env.VITE_API_KEY;
 
 
 
-    const [textSearch, setTextSearch] = useState("")
-    const [filmArray, setFilmArray] = useState(null)
 
-    const completeUrl = `${apiUrl}api_key=${apiKey}&query=${textSearch}`;
+    const [arrayList, setArrayList] = useState([])
+
+    // const completeUrl = `${apiUrl}api_key=${apiKey}&query=${textSearch}`;
     //const completeUrl = `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&query=ciao`
 
 
-    const getFilmList = () => {
+    const searchList = (searchKey) => {
 
-        console.log(completeUrl)
-
-        axios.get(completeUrl)
+        axios.get(`${apiUrl}/search/movie`, {
+            params: {
+                api_key: apiKey,
+                query: searchKey,
+                language: "it-IT"
+            }
+        })
             .then(resp => {
 
                 console.log(resp.data.results)
-                setFilmArray(resp.data.results)
+                setArrayList(resp.data.results)
             }
             )
     }
@@ -36,7 +40,7 @@ const GlobalContextProvider = ({ children }) => {
 
 
     const globalContextValues = {
-        textSearch, setTextSearch, getFilmList, filmArray
+        arrayList, searchList
     }
 
     return (
