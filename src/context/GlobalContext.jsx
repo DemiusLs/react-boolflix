@@ -13,14 +13,14 @@ const GlobalContextProvider = ({ children }) => {
 
 
 
-    const [arrayList, setArrayList] = useState([])
+    const [arraySeries, setArraySeries] = useState([])
     const [arrayMovies, setArrayMovies] = useState([])
 
     // const completeUrl = `${apiUrl}api_key=${apiKey}&query=${textSearch}`;
     //const completeUrl = `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&query=ciao`
 
 
-    const searchList = (searchKey) => {
+    const searchSeries = (searchKey) => {
 
         axios.get(`${apiUrl}/search/tv`, {
             params: {
@@ -32,10 +32,11 @@ const GlobalContextProvider = ({ children }) => {
             .then(resp => {
 
                 console.log(resp.data.results)
-                setArrayList(resp.data.results)
+                setArraySeries(resp.data.results)
             }
             )
     }
+
     const searchMovies = (searchKey) => {
 
         axios.get(`${apiUrl}/search/movie`, {
@@ -57,7 +58,7 @@ const GlobalContextProvider = ({ children }) => {
 
 
     const globalContextValues = {
-        arrayList, searchList, searchMovies ,arrayMovies
+        arraySeries, searchSeries, searchMovies ,arrayMovies
     }
 
     return (

@@ -6,7 +6,7 @@ import { GlobalContext } from "../context/GlobalContext"
 const SearchBar = () => {
 
     const [inputVar, setInputVar] = useState("")
-    const { searchList, searchMovies } = useContext(GlobalContext)
+    const { searchSeries, searchMovies } = useContext(GlobalContext)
 
     const handleChange = (e) => {
 
@@ -16,7 +16,7 @@ const SearchBar = () => {
 
     const handleClick = (event) => {
         event.preventDefault();
-        searchList(inputVar)
+        searchSeries(inputVar)
         searchMovies(inputVar)
 
     }

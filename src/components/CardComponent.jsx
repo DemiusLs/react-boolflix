@@ -25,9 +25,9 @@ const CardComponent = ({ listElement }) => {
 
     return (<div className="card" >
         <div class="card-header">
-            {listElement.name === undefined ? "Serie" : "Film"}
+            {listElement.name !== undefined ? "Serie" : "Film"}
         </div>
-        {/* <img src="..." className="card-img-top" alt="..." /> */}
+        <img src={`https://image.tmdb.org/t/p/w342${listElement.poster_path}`} className="card-img-top" alt="..." />
         <div className="card-body">
             <p className="card-text">{listElement.name}|| {listElement.title}</p>
             <p className="card-text">{listElement.original_name} || {listElement.original_title}</p>
