@@ -1,34 +1,28 @@
-import { useContext, useEffect, useState } from 'react'
-import { GlobalContext } from './context/GlobalContext'
-import SearchBar from './components/SearchBar'
-import CardComponent from "./components/CardComponent"
-import ListComponent from './components/ListComponent'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import GuestLayout from './layouts/GuestLayout'
+import Home from './pages/Home'
 
 
 function App() {
 
-  const { arraySeries, arrayMovies } = useContext(GlobalContext)
+
 
 
   return (
     <>
-      <main>
 
-        <div>
-
-          <SearchBar />
-
-          {arraySeries.length > 0 && <ListComponent listArray={arraySeries} title={"Lista series"} />}
+      <BrowserRouter >
+        <Routes>
+          <Route element={<GuestLayout />}>
+            <Route path="/" element={<Home />} />
 
 
-          {arrayMovies.length > 0 && <ListComponent listArray={arrayMovies} title={"Lista movies"} />}
+          </Route>
+        </Routes>
 
 
+      </BrowserRouter>
 
-
-        </div>
-
-      </main >
     </>
   )
 }

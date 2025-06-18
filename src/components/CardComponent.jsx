@@ -30,7 +30,7 @@ const CardComponent = ({ listElement }) => {
             <img src={listElement.poster_path !== null ? `https://image.tmdb.org/t/p/w342${listElement.poster_path}` : "/img/placeholder-image.jpg"} className="card-img" alt="..." />
         </div>
 
-        <div className="card-img-overlay card-overlay-content">
+        <div className="card-img-overlay card-overlay-content ">
             <p className="card-text  mb-1"> <strong>Titolo: </strong> {listElement.name} {listElement.title}</p>
             <p className="card-text  mb-1"> <strong>Titolo originale: </strong> {listElement.original_name}  {listElement.original_title}</p>
             <p className="card-text mb-1"> <strong>Lingua originale: </strong> <img src={flagUrl} alt="" />  </p>

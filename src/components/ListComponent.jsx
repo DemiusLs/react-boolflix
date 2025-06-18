@@ -33,4 +33,4 @@ const ListComponent = ({ listArray, title }) => {
     )
 }
 
-export default ListComponent
+export default ListComponent;
