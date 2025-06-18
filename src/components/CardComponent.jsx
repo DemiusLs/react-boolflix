@@ -24,6 +24,9 @@ const CardComponent = ({ listElement }) => {
     const flagUrl = flagItem ? flagItem.flagurl : "/img/sriflag.png";
 
     return (<div className="card" >
+        <div class="card-header">
+            {listElement.name === undefined ? "Serie" : "Film"}
+        </div>
         {/* <img src="..." className="card-img-top" alt="..." /> */}
         <div className="card-body">
             <p className="card-text">{listElement.name}|| {listElement.title}</p>

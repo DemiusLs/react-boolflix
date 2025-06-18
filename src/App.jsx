@@ -6,7 +6,7 @@ import CardComponent from "./components/CardComponent"
 
 function App() {
 
-  const { arrayList } = useContext(GlobalContext)
+  const { arrayList, arrayMovies } = useContext(GlobalContext)
 
 
   return (
@@ -18,7 +18,28 @@ function App() {
           <SearchBar />
 
           <div>
-            <h1 className='text-center my-4'>Lista film </h1>
+
+            <h2 className='text-center my-4'>Lista serie </h2>
+
+            <div className="container text-center">
+
+              <div className="row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
+
+                {arrayMovies.map((curMovie, index) => (
+
+                  < div className="col" key={index} >
+
+                    <CardComponent listElement={curMovie} />
+
+                  </div>
+
+                )
+
+                )}
+
+              </div>
+            </div>
+            <h2 className='text-center my-4'>Lista film </h2>
 
             <div className="container text-center">
 
@@ -35,12 +56,15 @@ function App() {
                 )
 
                 )}
-                
+
               </div>
             </div>
           </div>
+
+
         </div>
-      </main>
+
+      </main >
     </>
   )
 }
