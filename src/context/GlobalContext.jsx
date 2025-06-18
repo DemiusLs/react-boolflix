@@ -47,8 +47,7 @@ const GlobalContextProvider = ({ children }) => {
             }
         })
             .then(resp => {
-
-                console.log(resp.data.results)
+                
                 setArrayMovies(resp.data.results)
             }
             )
