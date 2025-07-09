@@ -3,7 +3,7 @@ import CardComponent from "./CardComponent"
 const ListComponent = ({ listArray, title }) => {
 
     return (
-        <div>
+        <section>
 
             <h2 className='text-center my-4'>{title}</h2>
 
@@ -26,7 +26,7 @@ const ListComponent = ({ listArray, title }) => {
                 </div>
             </div>
 
-        </div>
+        </section>
 
 
 

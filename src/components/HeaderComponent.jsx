@@ -17,6 +17,14 @@ const HeaderComponent = () => {
             titolo: "Movies",
             url: "/movies"
         },
+        {
+            titolo: "My List",
+            url: "/myList"
+        },
+        {
+            titolo: "Search by Language",
+            url: "/original-audio"
+        },
     ]
 
     return (

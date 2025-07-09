@@ -22,16 +22,16 @@ const GlobalContextProvider = ({ children }) => {
 
     const searchSeries = (searchKey) => {
 
+        const params = {
+            api_key: apiKey,
+            query: searchKey,
+            language: "it-IT"
+        }
+
         axios.get(`${apiUrl}/search/tv`, {
-            params: {
-                api_key: apiKey,
-                query: searchKey,
-                language: "it-IT"
-            }
+            params
         })
             .then(resp => {
-
-                console.log(resp.data.results)
                 setArraySeries(resp.data.results)
             }
             )
@@ -39,15 +39,16 @@ const GlobalContextProvider = ({ children }) => {
 
     const searchMovies = (searchKey) => {
 
+        const params = {
+            api_key: apiKey,
+            query: searchKey,
+            language: "it-IT"
+        }
+
         axios.get(`${apiUrl}/search/movie`, {
-            params: {
-                api_key: apiKey,
-                query: searchKey,
-                language: "it-IT"
-            }
+            params
         })
             .then(resp => {
-                
                 setArrayMovies(resp.data.results)
             }
             )
@@ -57,7 +58,7 @@ const GlobalContextProvider = ({ children }) => {
 
 
     const globalContextValues = {
-        arraySeries, searchSeries, searchMovies ,arrayMovies
+        arraySeries, searchSeries, searchMovies, arrayMovies
     }
 
     return (
